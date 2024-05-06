@@ -23,7 +23,7 @@ const Popup = (props) => {
               <table>
                 <thead>
                   <tr>
-                    <th>ITEM</th>
+                    <th>ITEMS</th>
                     <th>PRICE</th>
                     <th>QUANTITY</th>
                     <th>SUBTOTAL</th>
