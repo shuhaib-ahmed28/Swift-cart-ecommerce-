@@ -6,10 +6,11 @@ import Popup from "./Popup";
 
 const Productlist = (props) => {
   const [productData, setproductData] = useState(clothingitems);
+  const [cartItems,setCartItems]=useState([]);
 
   function handleIncrement(pname) {
     let productdatac = productData.map((val) => {
-      if (val.name == pname) {
+      if (val.name === pname) {
         return { ...val, orderedQ: val.orderedQ + 1 };
       } else {
         return val;
@@ -17,9 +18,10 @@ const Productlist = (props) => {
     });
     setproductData(productdatac);
   }
+  
   function handleDecrement(pname) {
     let productdatac = productData.map((val) => {
-      if (val.name == pname && val.orderedQ > 0) {
+      if (val.name === pname && val.orderedQ > 0) {
         return { ...val, orderedQ: val.orderedQ - 1 };
       } else {
         return val;
@@ -27,9 +29,10 @@ const Productlist = (props) => {
     });
     setproductData(productdatac);
   }
+  
   function addToCart(name) {
     let productdatac = productData.map((val) => {
-      if (val.name == name && val.orderedQ !==0) {
+      if (val.name == name && val.orderedQ >0 ) {
         return { ...val, addedtocart: 1 };
       } else {
          return val
@@ -47,6 +50,7 @@ const Productlist = (props) => {
     });
     props.productAddedcount(count);
   }
+  
   // function handleDelete(id) {
   //   const updatedProductData = productData.filter((item) => item.id !== id);
   //   setproductData(updatedProductData);
