@@ -34,7 +34,7 @@ const Productlist = (props) => {
     let productdatac = productData.map((val) => {
       if (val.name == name && val.orderedQ >0 ) {
         return { ...val, addedtocart: 1 };
-      } else {
+      }  else {
          return val
       }
     });
